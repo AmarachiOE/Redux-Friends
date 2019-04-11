@@ -1,4 +1,4 @@
-import { /* import ACTION_TYPES*/ } from "../actions";
+//import { /* import ACTION_TYPES*/ } from "../actions";
 
 const initialState = {
     friends: []
