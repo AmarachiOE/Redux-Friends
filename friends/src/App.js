@@ -15,7 +15,7 @@ class App extends Component {
         <nav>
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
-          <Link to="/protected">Protected</Link>
+          <Link to="/friends-list">Friends List</Link>
         </nav>
         <h2>Currently on Page</h2>
         <Route path="/login" component={LoginPage} />
