@@ -13,11 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
           <Link to="/friends-list">Friends List</Link>
         </nav>
-        <h2>Currently on Page</h2>
         <Route path="/login" component={LoginPage} />
         <PrivateRoute exact path="/friends-list" component={FriendsList} />
       </div>

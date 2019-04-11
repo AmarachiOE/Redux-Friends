@@ -37,6 +37,7 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div >
+        <h2>Login To See Your Friends</h2>
         <form className="Login-Form" onSubmit={this.submitForm}>
           <input 
           type="string"
