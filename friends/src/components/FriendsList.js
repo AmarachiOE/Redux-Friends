@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
+import { getData } from '../actions';
 
 
 class FriendsList extends React.Component {
     componentDidMount() {
         // need to invoke the getData action here
+        this.props.getData();
     }
 
     render() {
@@ -20,6 +22,6 @@ class FriendsList extends React.Component {
 export default withRouter(
     connect(
       null,
-      { }
+      { getData }
     )(FriendsList)
   );
