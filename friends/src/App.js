@@ -3,6 +3,8 @@ import { Route, Link } from "react-router-dom";
 
 // Components
 import LoginPage from "./components/LoginPage";
+import FriendsList from "./components/FriendsList";
+import PrivateRoute from "./components/PrivateRoute";
 
 import "./App.css";
 
@@ -17,6 +19,7 @@ class App extends Component {
         </nav>
         <h2>Currently on Page</h2>
         <Route path="/login" component={LoginPage} />
+        <PrivateRoute exact path="/friends-list" component={FriendsList} />
       </div>
     );
   }
