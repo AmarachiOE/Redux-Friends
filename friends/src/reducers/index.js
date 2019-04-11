@@ -9,7 +9,14 @@
 
 
 //import { /* import ACTION_TYPES*/ } from "../actions";
-import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions";
+import { 
+    LOGIN_START, 
+    LOGIN_SUCCESS, 
+    LOGIN_FAILURE, 
+    FETCH_FRIENDS_START, 
+    FETCH_FRIENDS_SUCCESS,
+    FETCH_FRIENDS_FAILURE 
+} from "../actions";
 
 const initialState = {
     deletingFriend: false,
@@ -34,6 +41,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         error: "",
         loggingIn: false
+    }
+    case FETCH_FRIENDS_SUCCESS:
+    return {
+        ...state,
+        friends: action.payload
     }
     default:
       return state;

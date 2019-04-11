@@ -14,14 +14,24 @@ class FriendsList extends React.Component {
         return (
             <div className="friends-list-container">
                 <h2>FRIENDS LIST:</h2>
+                {this.props.friends.map( friend => (
+                    <div>
+                        <h2 key={friend.name}>{friend.name}</h2>
+                    </div>
+                ))}
             </div>
         );
     }
 }
 
+
+const mapStateToProps = state => ({
+    friends: state.friends
+  });
+
 export default withRouter(
     connect(
-      null,
+      mapStateToProps,
       { getData }
     )(FriendsList)
   );

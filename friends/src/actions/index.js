@@ -7,9 +7,9 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
 // for getData action creator for FriendsList.js
-export const FETCH_DATA_START = "FETCH_DATA_START";
-export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
-export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
+export const FETCH_FRIENDS_START = "FETCH_FRIENDS_START";
+export const FETCH_FRIENDS_SUCCESS = "FETCH_FRIENDS_SUCCESS";
+export const FETCH_FRIENDS_FAILURE = "FETCH_FRIENDS_FAILURE";
 
 export const login = credentials => dispatch => {
     dispatch({ type: LOGIN_START });
@@ -27,16 +27,16 @@ export const login = credentials => dispatch => {
 };
 
 export const getData = () => dispatch => {
-    dispatch({ type: FETCH_DATA_START });
+    dispatch({ type: FETCH_FRIENDS_START });
     axiosWithAuth()
       .get("http://localhost:5000/api/friends")
       .then(res => {
         console.log("GOT DATA!", res.data);
-        dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data.data });
+        dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data });
       })
       .catch(err => {
         console.log(err);
-        dispatch({ type: FETCH_DATA_FAILURE, payload: err });
+        dispatch({ type: FETCH_FRIENDS_FAILURE, payload: err });
       });
   };
   
