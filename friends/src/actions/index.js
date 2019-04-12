@@ -11,6 +11,11 @@ export const FETCH_FRIENDS_START = "FETCH_FRIENDS_START";
 export const FETCH_FRIENDS_SUCCESS = "FETCH_FRIENDS_SUCCESS";
 export const FETCH_FRIENDS_FAILURE = "FETCH_FRIENDS_FAILURE";
 
+// for addFriend action creator for FriendForm.js
+export const ADD_FRIEND_START = "ADD_FRIEND_START";
+export const ADD_FRIEND_SUCCESS = "ADD_FRIEND_SUCCESS";
+export const ADD_FRIEND_FAILURE = "ADD_FRIEND_FAILURE";
+
 export const login = credentials => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios
@@ -40,4 +45,17 @@ export const getData = () => dispatch => {
     });
 };
 
-// action for posting a new friend
+// action for posting a new friend -- need authentication
+export const addFriend = friend => dispatch => {
+  dispatch({ type: ADD_FRIEND_START });
+  return axiosWithAuth()
+    .post("http://localhost:5000/api/friends", friend)
+    .then(res => {
+      console.log("FRIEND POSTED!", friend, res.data);
+      dispatch({ type: ADD_FRIEND_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log("SORRY! Can't add friend", err.response);
+      dispatch({ type: ADD_FRIEND_FAILURE, payload: err });
+    });
+};

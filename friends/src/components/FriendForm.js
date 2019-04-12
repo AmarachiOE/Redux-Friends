@@ -1,26 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-//import { addFriend } from "../actions";
+import { addFriend } from "../actions";
 
-/* 
-
-{
-  id: 1
-  name: 'Joe',
-  age: 24,
-  email: 'joe@lambdaschool.com',
-}
-
-*/
 // invoking the addFriend function and pass in this.state.newFriend. that's the connection
 
 class FriendForm extends React.Component {
   state = {
     newFriend: {
-        id: "",
-        name: "",
-        age: "",
-        email: "",
+      name: "",
+      age: "",
+      email: ""
+      // don't need id field
     }
   };
 
@@ -41,16 +31,13 @@ class FriendForm extends React.Component {
       console.log("New Friend Added", this.state);
       this.props.history.push("/friends-list"); // redirect to friends list
     });
-  } 
+  };
 
   render() {
     return (
       <div>
         <h2>Add A New Friend </h2>
-        <form
-          className="todo-form"
-          onSubmit={this.submitForm}
-        >
+        <form className="todo-form" onSubmit={this.submitForm}>
           <input
             type="string"
             name="name"
@@ -80,6 +67,6 @@ class FriendForm extends React.Component {
 }
 
 export default connect(
-  null, {}
-//   { addFriend }
+  null,
+  { addFriend }
 )(FriendForm);
