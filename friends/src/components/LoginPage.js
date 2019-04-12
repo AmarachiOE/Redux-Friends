@@ -28,7 +28,7 @@ class LoginPage extends React.Component {
   submitForm = e => {
     e.preventDefault();
     this.props.login(this.state.credentials).then(() => {
-      console.log("SUCCESS", this.state);
+      console.log("Login Credentials Accepted", this.state);
       this.props.history.push("/friends-list"); 
     });
   }

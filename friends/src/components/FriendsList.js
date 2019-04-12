@@ -15,8 +15,10 @@ class FriendsList extends React.Component {
             <div className="friends-list-container">
                 <h2>FRIENDS LIST:</h2>
                 {this.props.friends.map( friend => (
-                    <div>
-                        <h2 key={friend.name}> {friend.name}, {friend.age}</h2>
+                    <div key={friend.name}>
+                        <h2> {friend.name}, {friend.age}</h2>
+                        <p>{friend.email}</p>
+                        <button>Delete</button>
                     </div>
                 ))}
             </div>
